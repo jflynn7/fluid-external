@@ -1,1 +1,10 @@
 /* All styling provided by FLUID encapsulated Web Component styles */
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

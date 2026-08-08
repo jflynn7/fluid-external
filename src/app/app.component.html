@@ -1,32 +1,32 @@
 <!-- Liberty Mutual FLUID Design System - Dashboard Application using FLUID Encapsulated Components -->
+<fluid-header
+  [theme]="currentTheme"
+  display-density="comfortable"
+  [logoConfig]="headerLogo"
+  [links]="headerLinks">
+
+  <fluid-header-actions slot="header-actions">
+    <fluid-button
+      type="tertiary"
+      size="small"
+      (click)="toggleTheme()"
+      [theme]="currentTheme">
+      Theme: {{ currentTheme | uppercase }}
+    </fluid-button>
+
+    <fluid-button
+      type="secondary"
+      size="small"
+      (click)="openCsat()"
+      [theme]="currentTheme">
+      Agent Feedback
+    </fluid-button>
+  </fluid-header-actions>
+</fluid-header>
 
 <fluid-page [theme]="currentTheme">
-  
+
   <!-- Global Header -->
-  <fluid-header
-    [theme]="currentTheme"
-    display-density="comfortable"
-    [logoConfig]="headerLogo"
-    [links]="headerLinks">
-    
-    <fluid-header-actions slot="header-actions">
-      <fluid-button
-        type="tertiary"
-        size="small"
-        (click)="toggleTheme()"
-        [theme]="currentTheme">
-        Theme: {{ currentTheme | uppercase }}
-      </fluid-button>
-      
-      <fluid-button
-        type="secondary"
-        size="small"
-        (click)="openCsat()"
-        [theme]="currentTheme">
-        Agent Feedback
-      </fluid-button>
-    </fluid-header-actions>
-  </fluid-header>
 
   <!-- Page Context Bar & Breadcrumb -->
   <fluid-page-context-bar [theme]="currentTheme">
@@ -39,14 +39,13 @@
 
   <!-- Main Content Page Container -->
   <fluid-container padding="1.5rem 2rem" [theme]="currentTheme">
-    
+
     <!-- Action Executive Confirmation Alert -->
     <fluid-container *ngIf="actionMessage" margin="0 0 1rem 0" [theme]="currentTheme">
       <fluid-alert
         type="success"
-        header-text="Action Executive Confirmation"
+        [message]="actionMessage"
         [theme]="currentTheme">
-        {{ actionMessage }}
       </fluid-alert>
     </fluid-container>
 
@@ -54,10 +53,10 @@
     <fluid-container *ngIf="wafAlertVisible" margin="0 0 1.5rem 0" [theme]="currentTheme">
       <fluid-alert
         type="info"
-        header-text="WAF Pre-Production Deployment Verification Active"
+        message="This dashboard application loads FLUID Web Components at runtime to validate WAF rules and component availability post-deployment.
+      "
         [theme]="currentTheme">
-        This dashboard application loads FLUID Web Components at runtime to validate WAF rules and component availability post-deployment.
-      </fluid-alert>
+        </fluid-alert>
     </fluid-container>
 
     <!-- Top Dashboard Header Section -->
@@ -93,14 +92,14 @@
     <!-- Main Navigation Tabs -->
     <fluid-container margin="1.5rem 0 0 0" [theme]="currentTheme">
       <fluid-tabs [theme]="currentTheme">
-        
+
         <!-- TAB 1: OVERVIEW & ANALYTICS METRICS -->
         <fluid-tab tab-title="Executive Overview & Metrics" [active]="activeTab === 0" (click)="setTab(0)">
           <fluid-container padding="1.5rem 0" [theme]="currentTheme">
-            
+
             <!-- Key Metric Cards Grid -->
             <fluid-grid [gridItemSpacing]="16" [theme]="currentTheme">
-              
+
               <fluid-grid-item col-xs="12" col-sm="6" col-md="3" [theme]="currentTheme">
                 <fluid-card card-title="Active Policies" subtitle="Across all lines of business" [theme]="currentTheme">
                   <fluid-container margin="0.75rem 0" [theme]="currentTheme">
@@ -179,9 +178,9 @@
         <!-- TAB 2: CLAIMS & POLICY MANAGEMENT TABLE & ACCORDIONS -->
         <fluid-tab tab-title="Claims & Policy Register" [active]="activeTab === 1" (click)="setTab(1)">
           <fluid-container padding="1.5rem 0" [theme]="currentTheme">
-            
+
             <fluid-card card-title="Claims Management Console" subtitle="Search and filter active policy claims" [theme]="currentTheme">
-              
+
               <!-- Search Box Container -->
               <fluid-container margin="0 0 1.5rem 0" max-width="450px" [theme]="currentTheme">
                 <fluid-search-box
@@ -236,7 +235,7 @@
             <!-- Policy Details Accordion -->
             <fluid-container margin="2rem 0 0 0" [theme]="currentTheme">
               <fluid-title level="2" [theme]="currentTheme">Policy Coverage Schedules & Accordions</fluid-title>
-              
+
               <fluid-accordion type="section" [theme]="currentTheme">
                 <fluid-accordion-panel panel-title="Commercial Auto Comprehensive Coverage Schedule" [expanded]="true" [theme]="currentTheme">
                   <fluid-text [theme]="currentTheme">
@@ -276,9 +275,9 @@
         <!-- TAB 3: NEW POLICY QUOTE WIZARD (STEPPER & INPUTS) -->
         <fluid-tab tab-title="New Policy Quote Wizard" [active]="activeTab === 2" (click)="setTab(2)">
           <fluid-container padding="1.5rem 0" [theme]="currentTheme">
-            
+
             <fluid-card card-title="Liberty Mutual Instant Policy Quote Engine" [theme]="currentTheme">
-              
+
               <!-- Progress Stepper -->
               <fluid-stepper [theme]="currentTheme">
                 <fluid-step step-title="1. Applicant Information" [active]="quoteStep === 1" [status]="quoteStep > 1 ? 'complete' : 'active'" [theme]="currentTheme"></fluid-step>
@@ -291,7 +290,7 @@
               <!-- Step 1 Form -->
               <fluid-container *ngIf="quoteStep === 1" margin="1.5rem 0" [theme]="currentTheme">
                 <fluid-title level="3" [theme]="currentTheme">Step 1: Primary Named Insured Details</fluid-title>
-                
+
                 <fluid-grid [gridItemSpacing]="16" [theme]="currentTheme">
                   <fluid-grid-item col-xs="12" col-md="6" [theme]="currentTheme">
                     <fluid-input-field
@@ -335,7 +334,7 @@
               <!-- Step 2 Form -->
               <fluid-container *ngIf="quoteStep === 2" margin="1.5rem 0" [theme]="currentTheme">
                 <fluid-title level="3" [theme]="currentTheme">Step 2: Custom Coverage Limits & Endorsements</fluid-title>
-                
+
                 <fluid-grid [gridItemSpacing]="16" [theme]="currentTheme">
                   <fluid-grid-item col-xs="12" col-md="6" [theme]="currentTheme">
                     <fluid-currency-field
@@ -375,7 +374,7 @@
               <!-- Step 3 Form -->
               <fluid-container *ngIf="quoteStep === 3" margin="1.5rem 0" [theme]="currentTheme">
                 <fluid-title level="3" [theme]="currentTheme">Step 3: Review Effective Date & Bind Quote</fluid-title>
-                
+
                 <fluid-grid [gridItemSpacing]="16" [theme]="currentTheme">
                   <fluid-grid-item col-xs="12" col-md="6" [theme]="currentTheme">
                     <fluid-datepicker
@@ -434,9 +433,9 @@
         <!-- TAB 4: WAF COMPONENT VERIFICATION & DIAGNOSTICS SUITE -->
         <fluid-tab tab-title="WAF Component Audit & Verification" [active]="activeTab === 3" (click)="setTab(3)">
           <fluid-container padding="1.5rem 0" [theme]="currentTheme">
-            
+
             <fluid-card card-title="Post-Deployment WAF Component Audit Suite" subtitle="Validates that FLUID Web Components load through WAF rules without blockages" [theme]="currentTheme">
-              
+
               <fluid-container margin="0 0 1.5rem 0" [theme]="currentTheme">
                 <fluid-alert type="success" header-text="FLUID Web Components CDN Connection Operational" [theme]="currentTheme">
                   Runtime JS bundle loaded from <code>https://fluid.libertymutual.com/fluid/build/fluid.js</code>
@@ -508,7 +507,7 @@ test('Verify FLUID components load successfully after deployment', async ({ page
   </fluid-container>
 
   <!-- Interactive Overlays & Modals -->
-  
+
   <!-- Claim Review Modal -->
   <fluid-modal
     [open]="isClaimModalOpen"
@@ -556,15 +555,16 @@ test('Verify FLUID components load successfully after deployment', async ({ page
   </fluid-csat>
 
   <!-- Global Footer -->
-  <fluid-footer [theme]="currentTheme">
-    <div slot="footer-content">
-      <fluid-text [theme]="currentTheme">
-        &copy; 2026 Liberty Mutual Insurance Group &bull; FLUID Internal Design System Test Bed &bull; Confidential & Enterprise Restricted
-      </fluid-text>
-    </div>
-    <div slot="footer-actions">
-      <fluid-button type="tertiary" size="small" (click)="openCsat()" [theme]="currentTheme">Feedback</fluid-button>
-    </div>
-  </fluid-footer>
 
 </fluid-page>
+
+<fluid-footer [theme]="currentTheme">
+  <div slot="footer-content">
+    <fluid-text [theme]="currentTheme">
+      &copy; 2026 Liberty Mutual Insurance Group &bull; FLUID Internal Design System Test Bed &bull; Confidential & Enterprise Restricted
+    </fluid-text>
+  </div>
+  <div slot="footer-actions">
+    <fluid-button type="tertiary" size="small" (click)="openCsat()" [theme]="currentTheme">Feedback</fluid-button>
+  </div>
+</fluid-footer>
