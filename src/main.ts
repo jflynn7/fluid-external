@@ -1,12 +1,12 @@
 // Dynamically inject FLUID Web Components CSS & JS scripts
 const cssLink = document.createElement('link');
 cssLink.rel = 'stylesheet';
-cssLink.href = 'https://fluid.libertymutual.com/fluid/build/fluid.css';
+cssLink.href = 'https://fluid-backup.libertymutual.com/fluid/build/fluid.css';
 document.head.appendChild(cssLink);
 
 const script = document.createElement('script');
 script.type = 'module';
-script.src = 'https://fluid.libertymutual.com/fluid/build/fluid.js';
+script.src = 'https://fluid-backup.libertymutual.com/fluid/build/fluid.js';
 document.head.appendChild(script);
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';

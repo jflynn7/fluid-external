@@ -5,7 +5,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:e2e": "npm --prefix e2e test",
+    "test:e2e:ui": "npm --prefix e2e run test:ui",
+    "test:e2e:report": "npm --prefix e2e run test:report"
   },
   "dependencies": {
     "@angular/animations": "^15.0.0",
