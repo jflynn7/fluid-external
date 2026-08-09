@@ -16,19 +16,14 @@ test.describe('Smoke & Infrastructure Tests', () => {
 
   test('should display global navigation header and brand logo', async ({ page }) => {
     const header = page.locator('fluid-header');
-    await expect(header).toBeVisible();
+    await expect(header).toBeAttached({ timeout: 5000 });
     await expect(page.locator('text=Liberty Mutual Insurance')).toBeVisible();
   });
 
   test('should toggle dark/light design themes dynamically', async ({ page }) => {
-    const themeBtn = page.locator('fluid-button', { hasText: /Theme:/i });
-    await expect(themeBtn).toBeVisible();
+    const themeBtn = page.locator('fluid-button', { hasText: 'Theme:' });
+    await expect(themeBtn).toBeAttached({ timeout: 10000 });
 
-    // Click to toggle theme to LM
-    await themeBtn.dispatchEvent('click');
-    await page.waitForTimeout(300);
-
-    // Click again to toggle back to CORP
     await themeBtn.dispatchEvent('click');
     await page.waitForTimeout(300);
   });

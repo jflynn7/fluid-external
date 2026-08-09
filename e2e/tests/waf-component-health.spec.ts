@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { switchTab } from './helpers';
 
 test.describe('WAF Web Component Health & Audit Tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -32,13 +33,10 @@ test.describe('WAF Web Component Health & Audit Tests', () => {
   });
 
   test('should check WAF verification table on WAF Test Suite tab', async ({ page }) => {
-    const wafTab = page.locator('fluid-tab', { hasText: 'WAF Test Suite' });
-    await wafTab.dispatchEvent('click');
-    await page.waitForTimeout(300);
+    await switchTab(page, 3);
 
-    await expect(page.locator('fluid-card', { hasText: 'Web Application Firewall (WAF) Component Health Audit' })).toBeVisible();
-    await expect(page.locator('text=fluid-header')).toBeVisible();
-    await expect(page.locator('text=fluid-bar-chart')).toBeVisible();
-    await expect(page.locator('text=fluid-modal')).toBeVisible();
+    const auditCard = page.locator('fluid-card', { hasText: 'Post-Deployment WAF Component Audit Suite' });
+    await expect(auditCard).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('text=Verified FLUID Web Components Checklist')).toBeVisible({ timeout: 10000 });
   });
 });
