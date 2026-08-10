@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -24,16 +24,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Liberty Mutual FLUID Insurance Dashboard'`, () => {
+  it(`should have as title 'FLUID Components Dashboard'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Liberty Mutual FLUID Insurance Dashboard');
+    expect(app.title).toEqual('FLUID Components Dashboard');
   });
 
   it('should render dashboard main content', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.dashboard-wrapper')).toBeTruthy();
+    expect(compiled.querySelector('fluid-header')).toBeTruthy();
   });
 });

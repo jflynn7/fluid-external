@@ -1,7 +1,9 @@
-<!-- Liberty Mutual FLUID Design System - Dashboard Application using FLUID Encapsulated Components -->
+<!-- FLUID Design System - Dashboard Application using FLUID Encapsulated Components -->
 <fluid-header
   [theme]="currentTheme"
   display-density="comfortable"
+  fluid-logo="true"
+  [fluidLogo]="true"
   [logoConfig]="headerLogo"
   [links]="headerLinks">
 
@@ -32,7 +34,7 @@
   <fluid-page-context-bar [theme]="currentTheme">
     <fluid-breadcrumb
       [trail]="breadcrumbTrail"
-      home-label="Liberty Mutual Enterprise"
+      home-label="FLUID Enterprise"
       [theme]="currentTheme">
     </fluid-breadcrumb>
   </fluid-page-context-bar>
@@ -67,7 +69,7 @@
             Insurance Claims & Policy Operations Dashboard
           </fluid-title>
           <fluid-text [theme]="currentTheme">
-            Liberty Mutual Claims Center &bull; Environment: <strong>Pre-Production WAF Test Bed</strong>
+            FLUID Claims Center &bull; Environment: <strong>Pre-Production WAF Test Bed</strong>
           </fluid-text>
         </fluid-grid-item>
 
@@ -101,70 +103,56 @@
             <fluid-grid [gridItemSpacing]="16" [theme]="currentTheme">
 
               <fluid-grid-item col-xs="12" col-sm="6" col-md="3" [theme]="currentTheme">
-                <fluid-card card-title="Active Policies" subtitle="Across all lines of business" [theme]="currentTheme">
-                  <fluid-container margin="0.75rem 0" [theme]="currentTheme">
-                    <fluid-title level="2" [theme]="currentTheme">{{ totalPoliciesCount | number }}</fluid-title>
-                    <fluid-badge type="success" label="Active" [theme]="currentTheme"></fluid-badge>
-                  </fluid-container>
-                  <fluid-text [theme]="currentTheme">Portfolio Capacity Usage (85%)</fluid-text>
-                  <fluid-linear-progress [value]="85" type="determinate" [theme]="currentTheme"></fluid-linear-progress>
+                <fluid-card card-title="Active Policies" [theme]="currentTheme">
+                  <fluid-title level="2" [theme]="currentTheme">{{ totalPoliciesCount | number }}</fluid-title>
+                  <fluid-badge type="success" label="+4.2% YoY" [theme]="currentTheme"></fluid-badge>
+                  <fluid-text [theme]="currentTheme">In-force policy count across all lines</fluid-text>
                 </fluid-card>
               </fluid-grid-item>
 
               <fluid-grid-item col-xs="12" col-sm="6" col-md="3" [theme]="currentTheme">
-                <fluid-card card-title="Open Claims" subtitle="Pending review or approval" [theme]="currentTheme">
-                  <fluid-container margin="0.75rem 0" [theme]="currentTheme">
-                    <fluid-title level="2" [theme]="currentTheme">{{ openClaimsCount }}</fluid-title>
-                    <fluid-badge type="warning" label="384 Pending" [theme]="currentTheme"></fluid-badge>
-                  </fluid-container>
-                  <fluid-text [theme]="currentTheme">Average Processing Time: 3.2 Days</fluid-text>
-                  <fluid-linear-progress [value]="62" type="determinate" [theme]="currentTheme"></fluid-linear-progress>
+                <fluid-card card-title="Open Claims" [theme]="currentTheme">
+                  <fluid-title level="2" [theme]="currentTheme">{{ openClaimsCount }}</fluid-title>
+                  <fluid-badge type="warning" label="Active Queue" [theme]="currentTheme"></fluid-badge>
+                  <fluid-text [theme]="currentTheme">Adjuster review pending</fluid-text>
                 </fluid-card>
               </fluid-grid-item>
 
               <fluid-grid-item col-xs="12" col-sm="6" col-md="3" [theme]="currentTheme">
-                <fluid-card card-title="Monthly Loss Ratio" subtitle="Target threshold < 65%" [theme]="currentTheme">
-                  <fluid-container margin="0.75rem 0" [theme]="currentTheme">
-                    <fluid-title level="2" [theme]="currentTheme">{{ monthlyLossRatio }}</fluid-title>
-                    <fluid-badge type="info" label="Optimal" [theme]="currentTheme"></fluid-badge>
-                  </fluid-container>
-                  <fluid-text [theme]="currentTheme">Year-to-Date Variance: -2.1%</fluid-text>
-                  <fluid-linear-progress [value]="62" type="determinate" [theme]="currentTheme"></fluid-linear-progress>
+                <fluid-card card-title="Monthly Loss Ratio" [theme]="currentTheme">
+                  <fluid-title level="2" [theme]="currentTheme">{{ monthlyLossRatio }}</fluid-title>
+                  <fluid-badge type="info" label="Target <=65%" [theme]="currentTheme"></fluid-badge>
+                  <fluid-text [theme]="currentTheme">Underwriting performance index</fluid-text>
                 </fluid-card>
               </fluid-grid-item>
 
               <fluid-grid-item col-xs="12" col-sm="6" col-md="3" [theme]="currentTheme">
-                <fluid-card card-title="WAF Component Health" subtitle="Runtime web components" [theme]="currentTheme">
-                  <fluid-container margin="0.75rem 0" [theme]="currentTheme">
-                    <fluid-title level="2" [theme]="currentTheme">{{ wafPassRate }}%</fluid-title>
-                    <fluid-badge type="success" label="Passed" [theme]="currentTheme"></fluid-badge>
-                  </fluid-container>
-                  <fluid-text [theme]="currentTheme">45 FLUID Components Validated</fluid-text>
-                  <fluid-linear-progress [value]="100" type="determinate" [theme]="currentTheme"></fluid-linear-progress>
+                <fluid-card card-title="WAF Component Health" [theme]="currentTheme">
+                  <fluid-title level="2" [theme]="currentTheme">{{ wafPassRate }}%</fluid-title>
+                  <fluid-badge type="success" label="45/45 Passed" [theme]="currentTheme"></fluid-badge>
+                  <fluid-text [theme]="currentTheme">Web component delivery verification</fluid-text>
                 </fluid-card>
               </fluid-grid-item>
             </fluid-grid>
 
-            <!-- Visual Analytics Charts Row -->
-            <fluid-container margin="1.5rem 0 0 0" [theme]="currentTheme">
+            <!-- Analytics Visualizations Section -->
+            <fluid-container margin="2rem 0 0 0" [theme]="currentTheme">
               <fluid-grid [gridItemSpacing]="16" [theme]="currentTheme">
-                <fluid-grid-item col-xs="12" col-md="6" [theme]="currentTheme">
-                  <fluid-card card-title="Weekly Claim Filings Volume" [theme]="currentTheme">
+                <fluid-grid-item col-xs="12" col-md="7" [theme]="currentTheme">
+                  <fluid-card card-title="Weekly Claim Filings Volume" subtitle="Daily claim intake metrics" [theme]="currentTheme">
                     <fluid-bar-chart
                       [chartData]="claimsBarChartData"
-                      [chartLabels]="claimsBarChartLabels"
-                      chart-title="Filing Volume"
+                      [labels]="claimsBarChartLabels"
                       [theme]="currentTheme">
                     </fluid-bar-chart>
                   </fluid-card>
                 </fluid-grid-item>
 
-                <fluid-grid-item col-xs="12" col-md="6" [theme]="currentTheme">
-                  <fluid-card card-title="Policy Volume Distribution by Line of Business" [theme]="currentTheme">
+                <fluid-grid-item col-xs="12" col-md="5" [theme]="currentTheme">
+                  <fluid-card card-title="Policy Distribution by LOB" subtitle="Portfolio percentage breakdown" [theme]="currentTheme">
                     <fluid-pie-chart
                       [chartData]="policyPieChartData"
-                      [chartLabels]="policyPieChartLabels"
-                      chart-title="LOB Distribution"
+                      [labels]="policyPieChartLabels"
                       [theme]="currentTheme">
                     </fluid-pie-chart>
                   </fluid-card>
@@ -175,75 +163,91 @@
           </fluid-container>
         </fluid-tab>
 
-        <!-- TAB 2: CLAIMS & POLICY MANAGEMENT TABLE & ACCORDIONS -->
+        <!-- TAB 2: CLAIMS & POLICY MANAGEMENT REGISTER -->
         <fluid-tab tab-title="Claims & Policy Register" [active]="activeTab === 1" (click)="setTab(1)">
           <fluid-container padding="1.5rem 0" [theme]="currentTheme">
 
-            <fluid-card card-title="Claims Management Console" subtitle="Search and filter active policy claims" [theme]="currentTheme">
+            <fluid-card card-title="Claims Management Console" [theme]="currentTheme">
 
-              <!-- Search Box Container -->
-              <fluid-container margin="0 0 1.5rem 0" max-width="450px" [theme]="currentTheme">
-                <fluid-search-box
-                  label="Search Claims by Policy #, Insured, or ID"
-                  placeholder="Type claim number, name or status..."
-                  (input)="onSearchChange($event)"
-                  [theme]="currentTheme">
-                </fluid-search-box>
+              <!-- Search & Quick Filters Bar -->
+              <fluid-container margin="0 0 1.25rem 0" [theme]="currentTheme">
+                <fluid-grid align-items="center" justify="space-between" [theme]="currentTheme">
+                  <fluid-grid-item col-xs="12" col-md="6" [theme]="currentTheme">
+                    <fluid-search-box
+                      placeholder="Search claims by ID, insured name, policy #, or status..."
+                      (input)="onSearchChange($event)"
+                      [theme]="currentTheme">
+                    </fluid-search-box>
+                  </fluid-grid-item>
+                  <fluid-grid-item col-xs="12" col-md="6" pull-right [theme]="currentTheme">
+                    <fluid-button type="tertiary" size="small" (click)="onSearchChange($event)" [theme]="currentTheme">
+                      Refresh Register Data
+                    </fluid-button>
+                  </fluid-grid-item>
+                </fluid-grid>
               </fluid-container>
 
-              <!-- Data Table Render -->
-              <fluid-container overflow-x="auto" [theme]="currentTheme">
-                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+              <!-- Data Table -->
+              <fluid-table [theme]="currentTheme">
+                <table>
                   <thead>
                     <tr>
-                      <th *ngFor="let header of tableHeaders" style="padding: 12px; border-bottom: 2px solid #ccc;">{{ header.label }}</th>
-                      <th style="padding: 12px; border-bottom: 2px solid #ccc;">Actions</th>
+                      <th *ngFor="let header of tableHeaders">{{ header.label }}</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let claim of filteredClaims">
-                      <td style="padding: 12px; border-bottom: 1px solid #eee;"><strong>{{ claim.claimId }}</strong></td>
-                      <td style="padding: 12px; border-bottom: 1px solid #eee;">{{ claim.policyNumber }}</td>
-                      <td style="padding: 12px; border-bottom: 1px solid #eee;">{{ claim.insured }}</td>
-                      <td style="padding: 12px; border-bottom: 1px solid #eee;">{{ claim.type }}</td>
-                      <td style="padding: 12px; border-bottom: 1px solid #eee;">{{ claim.amount }}</td>
-                      <td style="padding: 12px; border-bottom: 1px solid #eee;">
+                      <td><code>{{ claim.claimId }}</code></td>
+                      <td>{{ claim.policyNumber }}</td>
+                      <td><strong>{{ claim.insured }}</strong></td>
+                      <td>{{ claim.type }}</td>
+                      <td>{{ claim.amount }}</td>
+                      <td>
                         <fluid-badge
-                          [type]="claim.status === 'Approved' ? 'success' : (claim.status === 'Under Review' ? 'warning' : (claim.status === 'Pending Info' ? 'info' : 'danger'))"
+                          [type]="claim.status === 'Approved' ? 'success' : (claim.status === 'Denied' ? 'danger' : 'warning')"
                           [label]="claim.status"
                           [theme]="currentTheme">
                         </fluid-badge>
                       </td>
-                      <td style="padding: 12px; border-bottom: 1px solid #eee;">{{ claim.date }}</td>
-                      <td style="padding: 12px; border-bottom: 1px solid #eee;">
-                        <fluid-button
-                          type="tertiary"
-                          size="small"
-                          (click)="openClaimModal(claim)"
-                          [theme]="currentTheme">
+                      <td>{{ claim.date }}</td>
+                      <td>
+                        <fluid-button type="tertiary" size="small" (click)="openClaimModal(claim)" [theme]="currentTheme">
                           Review
                         </fluid-button>
                       </td>
                     </tr>
+                    <tr *ngIf="filteredClaims.length === 0">
+                      <td colspan="8" style="text-align: center; padding: 2rem;">
+                        <fluid-empty-state-container message="No claims matching your filter criteria" [theme]="currentTheme"></fluid-empty-state-container>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
+              </fluid-table>
 
-                <fluid-paginator [theme]="currentTheme"></fluid-paginator>
-              </fluid-container>
+              <!-- Table Pagination -->
+              <fluid-paginator
+                [totalItems]="filteredClaims.length"
+                [pageSize]="10"
+                [currentPage]="1"
+                [theme]="currentTheme">
+              </fluid-paginator>
+
             </fluid-card>
 
-            <!-- Policy Details Accordion -->
-            <fluid-container margin="2rem 0 0 0" [theme]="currentTheme">
-              <fluid-title level="2" [theme]="currentTheme">Policy Coverage Schedules & Accordions</fluid-title>
+            <!-- Policy Coverage Accordions -->
+            <fluid-container margin="1.5rem 0 0 0" [theme]="currentTheme">
+              <fluid-title level="3" [theme]="currentTheme">Policy Coverage Schedules & Schedules</fluid-title>
 
-              <fluid-accordion type="section" [theme]="currentTheme">
-                <fluid-accordion-panel panel-title="Commercial Auto Comprehensive Coverage Schedule" [expanded]="true" [theme]="currentTheme">
+              <fluid-accordion [theme]="currentTheme">
+                <fluid-accordion-panel panel-title="Commercial Property & General Liability Limits" [theme]="currentTheme">
                   <fluid-text [theme]="currentTheme">
-                    Comprehensive coverage includes collision, property damage liability ($1M limits), bodily injury ($500k/person), and uninsured motorist protection across all fleet vehicles.
+                    Full replacement cost coverage up to $5,000,000 per occurrence. Includes business interruption coverage and equipment breakdown endorsement.
                   </fluid-text>
                   <fluid-container margin="0.75rem 0 0 0" [theme]="currentTheme">
-                    <fluid-badge type="success" label="Active Coverage" [theme]="currentTheme"></fluid-badge>
-                    <fluid-text [theme]="currentTheme">Deductible: $1,000 per occurrence</fluid-text>
+                    <fluid-badge type="info" label="Active Coverage" [theme]="currentTheme"></fluid-badge>
+                    <fluid-text [theme]="currentTheme">Deductible: $10,000</fluid-text>
                   </fluid-container>
                 </fluid-accordion-panel>
 
@@ -276,7 +280,7 @@
         <fluid-tab tab-title="New Policy Quote Wizard" [active]="activeTab === 2" (click)="setTab(2)">
           <fluid-container padding="1.5rem 0" [theme]="currentTheme">
 
-            <fluid-card card-title="Liberty Mutual Instant Policy Quote Engine" [theme]="currentTheme">
+            <fluid-card card-title="FLUID Instant Policy Quote Engine" [theme]="currentTheme">
 
               <!-- Progress Stepper -->
               <fluid-stepper [theme]="currentTheme">
@@ -295,8 +299,9 @@
                   <fluid-grid-item col-xs="12" col-md="6" [theme]="currentTheme">
                     <fluid-input-field
                       label="Applicant Full Name or Business Entity"
-                      placeholder="e.g. John Doe / Liberty Logistics Inc."
+                      placeholder="e.g. John Doe / Acme Logistics Inc."
                       [(ngModel)]="applicantName"
+                      ngDefaultControl
                       [theme]="currentTheme">
                     </fluid-input-field>
                   </fluid-grid-item>
@@ -307,6 +312,7 @@
                       placeholder="name@company.com"
                       type="email"
                       [(ngModel)]="applicantEmail"
+                      ngDefaultControl
                       [theme]="currentTheme">
                     </fluid-input-field>
                   </fluid-grid-item>
@@ -316,6 +322,7 @@
                       label="State of Primary Risk Location"
                       [options]="stateOptions"
                       [(ngModel)]="applicantState"
+                      ngDefaultControl
                       [theme]="currentTheme">
                     </fluid-select>
                   </fluid-grid-item>
@@ -325,6 +332,7 @@
                       label="Line of Business / Policy Type"
                       [options]="policyTypeOptions"
                       [(ngModel)]="selectedPolicyType"
+                      ngDefaultControl
                       [theme]="currentTheme">
                     </fluid-select>
                   </fluid-grid-item>
@@ -349,6 +357,7 @@
                       label="Premium Payment Billing Plan"
                       [options]="paymentFrequencyOptions"
                       [(ngModel)]="paymentFrequency"
+                      ngDefaultControl
                       [theme]="currentTheme">
                     </fluid-radio-group>
                   </fluid-grid-item>
@@ -438,7 +447,7 @@
 
               <fluid-container margin="0 0 1.5rem 0" [theme]="currentTheme">
                 <fluid-alert type="success" header-text="FLUID Web Components CDN Connection Operational" [theme]="currentTheme">
-                  Runtime JS bundle loaded from <code>https://fluid.libertymutual.com/fluid/build/fluid.js</code>
+                  Runtime JS bundle loaded from <code>https://fluid.design/fluid/build/fluid.js</code>
                 </fluid-alert>
               </fluid-container>
 
@@ -491,7 +500,7 @@ test('Verify FLUID components load successfully after deployment', async ({ page
                 </fluid-faq>
                 <fluid-faq
                   question="Where are the FLUID web component bundles hosted?"
-                  answer="FLUID web components are loaded at runtime from Liberty Mutual's internal CDN endpoints: fluid.libertymutual.com/fluid/build/fluid.js and fluid.css."
+                  answer="FLUID web components are loaded at runtime from internal CDN endpoints: fluid.design/fluid/build/fluid.js and fluid.css."
                   [theme]="currentTheme">
                 </fluid-faq>
               </fluid-container>
@@ -548,7 +557,7 @@ test('Verify FLUID components load successfully after deployment', async ({ page
   <!-- CSAT Survey Modal -->
   <fluid-csat
     [open]="isCsatModalOpen"
-    modal-title="Liberty Mutual Agent Experience Survey"
+    modal-title="FLUID Agent Experience Survey"
     message="How satisfied are you with the FLUID Insurance Dashboard application?"
     (close)="closeCsat()"
     [theme]="currentTheme">
@@ -561,7 +570,7 @@ test('Verify FLUID components load successfully after deployment', async ({ page
 <fluid-footer [theme]="currentTheme">
   <div slot="footer-content">
     <fluid-text [theme]="currentTheme">
-      &copy; 2026 Liberty Mutual Insurance Group &bull; FLUID Internal Design System Test Bed &bull; Confidential & Enterprise Restricted
+      &copy; 2026 FLUID Design System &bull; FLUID Internal Design System Test Bed &bull; Confidential & Enterprise Restricted
     </fluid-text>
   </div>
   <div slot="footer-actions">

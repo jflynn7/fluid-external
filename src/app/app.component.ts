@@ -23,7 +23,7 @@ export interface WafTestComponentStatus {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Liberty Mutual FLUID Insurance Dashboard';
+  title = 'FLUID Components Dashboard';
 
   // Navigation & Theme
   activeTab = 0;
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   wafAlertVisible = true;
 
   // Header & Context
-  headerLogo = { title: 'Liberty Mutual Insurance', href: '#' };
+  headerLogo = { title: 'FLUID Components', href: '#' };
   headerLinks = [
     { label: 'Operations Dashboard', href: '#', active: true },
     { label: 'Claims Center', href: '#' },
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
     { label: 'WAF Health & Verification', href: '#' }
   ];
   breadcrumbTrail = [
-    { label: 'Liberty Mutual Enterprise', url: '#' },
+    { label: 'FLUID Enterprise', url: '#' },
     { label: 'Commercial & Personal Lines', url: '#' },
     { label: 'WAF Deployment Test Dashboard', url: '#' }
   ];

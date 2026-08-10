@@ -11,7 +11,7 @@ test.describe('New Policy Quote Wizard E2E Tests', () => {
   });
 
   test('should load quote wizard with Step 1 active', async ({ page }) => {
-    const wizardCard = page.locator('fluid-card', { hasText: 'Liberty Mutual Instant Policy Quote Engine' });
+    const wizardCard = page.locator('fluid-card', { hasText: 'FLUID Instant Policy Quote Engine' });
     await expect(wizardCard).toBeVisible({ timeout: 10000 });
     await expect(page.locator('text=Step 1: Primary Named Insured Details')).toBeVisible();
   });

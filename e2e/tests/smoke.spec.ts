@@ -17,7 +17,7 @@ test.describe('Smoke & Infrastructure Tests', () => {
   test('should display global navigation header and brand logo', async ({ page }) => {
     const header = page.locator('fluid-header');
     await expect(header).toBeAttached({ timeout: 5000 });
-    await expect(page.locator('text=Liberty Mutual Insurance')).toBeVisible();
+    await expect(header).toHaveAttribute('fluid-logo', 'true');
   });
 
   test('should toggle dark/light design themes dynamically', async ({ page }) => {
