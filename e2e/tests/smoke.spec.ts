@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
+import { gotoApp } from './helpers';
 
 test.describe('Smoke & Infrastructure Tests', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
+    await gotoApp(page);
   });
 
   test('should load the insurance dashboard home page successfully', async ({ page }) => {

@@ -1,10 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { switchTab } from './helpers';
+import { gotoApp, switchTab } from './helpers';
 
 test.describe('Claims & Policy Register E2E Tests', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
+    await gotoApp(page);
 
     // Switch to Claims & Policy Register tab (index 1)
     await switchTab(page, 1);

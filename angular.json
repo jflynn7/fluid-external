@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-test": {
+    "fluid-external": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-test",
+            "outputPath": "dist/fluid-external",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -24,6 +24,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/fluid-external/",
               "budgets": [
                 {
                   "type": "initial",
@@ -53,10 +54,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-test:build:production"
+              "browserTarget": "fluid-external:build:production"
             },
             "development": {
-              "browserTarget": "angular-test:build:development"
+              "browserTarget": "fluid-external:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -64,7 +65,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-test:build"
+            "browserTarget": "fluid-external:build"
           }
         },
         "test": {

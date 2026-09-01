@@ -1,10 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { switchTab } from './helpers';
+import { gotoApp, switchTab } from './helpers';
 
 test.describe('New Policy Quote Wizard E2E Tests', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
+    await gotoApp(page);
 
     // Switch to Policy Quote Wizard tab (index 2)
     await switchTab(page, 2);

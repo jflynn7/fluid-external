@@ -1,10 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { switchTab } from './helpers';
+import { gotoApp, switchTab } from './helpers';
 
 test.describe('WAF Web Component Health & Audit Tests', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
+    await gotoApp(page);
   });
 
   test('should verify all core FLUID design system web components exist on DOM', async ({ page }) => {

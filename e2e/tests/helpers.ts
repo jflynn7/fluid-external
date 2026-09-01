@@ -16,3 +16,8 @@ export async function switchTab(page: Page, tabIndex: number) {
   await tabItem.click({ force: true });
   await page.waitForTimeout(400);
 }
+
+export async function gotoApp(page: Page) {
+  await page.goto('./');
+  await page.waitForLoadState('domcontentloaded');
+}

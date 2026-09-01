@@ -1,16 +1,8 @@
-# Angular
+# FLUID Components Dashboard
 
-This directory is a brief example of an [Angular](https://angular.io/) app that can be deployed to Vercel with zero configuration.
+This Angular app is deployed on GitHub Pages at `https://jflynn7.github.io/fluid-external/`.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
-
-## Deploy Your Own
-
-Deploy your own Angular project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/angular&template=angular)
-
-_Live Example: https://angular-template.vercel.app_
+The production build is configured for the `/fluid-external/` Pages base path.
 
 ## Development server
 
@@ -22,7 +14,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` to build the project. The build artifacts will be stored in `dist/fluid-external/`.
 
 ## Running unit tests
 
@@ -30,7 +22,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `npm run test:e2e` to execute the Playwright suite against the deployed GitHub Pages app.
+
+Set `BASE_URL` to the full app URL, including the trailing slash, when you need to target a different environment.
 
 ## Further help
 

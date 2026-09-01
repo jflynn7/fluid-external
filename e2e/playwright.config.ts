@@ -1,10 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
 
-// Load environment variables from .env file
 dotenv.config();
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:4200';
+const BASE_URL = process.env.BASE_URL || 'https://jflynn7.github.io/fluid-external/';
 
 export default defineConfig({
   testDir: './tests',
@@ -21,11 +20,6 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'on-first-retry',
-  },
-  webServer: process.env.BASE_URL ? undefined : {
-    command: 'npx serve -s ../dist/angular-test -p 4200',
-    port: 4200,
-    reuseExistingServer: !process.env.CI,
   },
   projects: [
     {

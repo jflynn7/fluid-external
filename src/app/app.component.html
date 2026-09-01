@@ -477,7 +477,7 @@
                   code="
 // Playwright / Cypress E2E WAF Block Verification Test
 test('Verify FLUID components load successfully after deployment', async ({ page }) => {
-  await page.goto('https://fluid-external.vercel.app');
+  await page.goto('https://jflynn7.github.io/fluid-external/');
   await page.waitForSelector('fluid-header');
   await page.waitForSelector('fluid-tabs');
   await page.waitForSelector('fluid-card');
@@ -500,7 +500,7 @@ test('Verify FLUID components load successfully after deployment', async ({ page
                 </fluid-faq>
                 <fluid-faq
                   question="Where are the FLUID web component bundles hosted?"
-                  answer="FLUID web components are loaded at runtime from internal CDN endpoints: fluid.design/fluid/build/fluid.js and fluid.css."
+                  answer="FLUID web components are loaded at runtime from internal CDN endpoints."
                   [theme]="currentTheme">
                 </fluid-faq>
               </fluid-container>
